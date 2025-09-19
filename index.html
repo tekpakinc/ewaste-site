@@ -3,106 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tek-Pak Recycling</title>
+  <title>NC Electronic Recycling</title>
   <style>
+    :root {
+      --primary: #32cd32;
+      --secondary: #0066cc;
+      --text-dark: #222;
+      --text-light: #f8f9fa;
+      --bg: #f4f6f9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-      color: #333;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
+
     header {
-      background: linear-gradient(135deg, #32cd32, #0066cc);
-      color: white;
-      padding: 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--text-light);
+      padding: 3rem 1rem;
       text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
+
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
+
     header p {
-      margin: 0.5rem 0 0;
       font-size: 1.2rem;
+      opacity: 0.9;
     }
+
     .container {
-      max-width: 1000px;
-      margin: 2rem auto;
+      max-width: 1100px;
+      margin: 2.5rem auto;
       padding: 0 1rem;
     }
+
     .section {
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
+      border-radius: 12px;
       padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
+    .section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+    }
+
     .section h2 {
-      color: #0066cc;
-      margin-top: 0;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      font-size: 1.8rem;
+      border-left: 6px solid var(--primary);
+      padding-left: 0.6rem;
     }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 0.6rem;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
     .cta {
       text-align: center;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
     }
+
     .cta button {
-      background: #32cd32;
+      background: var(--primary);
       border: none;
       color: white;
       font-size: 1.2rem;
-      padding: 1rem 2rem;
+      padding: 0.9rem 2.2rem;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
+
     .cta button:hover {
       background: #28a428;
+      transform: scale(1.05);
     }
+
     footer {
-      background: #333;
-      color: white;
+      background: #111;
+      color: var(--text-light);
       text-align: center;
-      padding: 1rem;
+      padding: 1.2rem;
+      font-size: 0.95rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Tek-Pak Recycling</h1>
-    <p>Turning E-Waste into a Greener Tomorrow</p>
+    <h1>NC Electronic Recycling</h1>
+    <p>Responsible Disposal. Secure Data. A Cleaner Tomorrow.</p>
   </header>
 
   <div class="container">
     <div class="section">
-      <h2>Why Recycle?</h2>
+      <h2>Why Recycle Electronics?</h2>
       <p>
-        Electronic waste is one of the fastest-growing waste streams in the world. 
-        By recycling your old devices, you help conserve resources, protect the environment, 
-        and keep hazardous materials out of landfills.
+        Electronic waste is one of the fastest-growing waste streams in North Carolina. 
+        Recycling reduces pollution, conserves resources, and keeps hazardous materials 
+        out of our landfills. Together, we can build a sustainable future.
       </p>
     </div>
 
     <div class="section">
       <h2>Our Services</h2>
       <ul>
-        <li>Free local e-waste pickup</li>
-        <li>Secure data destruction</li>
-        <li>Responsible recycling and disposal</li>
-        <li>Certified recycling documentation</li>
+        <li>Free and scheduled local e-waste pickup</li>
+        <li>Certified secure data destruction</li>
+        <li>Eco-friendly recycling and disposal</li>
+        <li>Proof of compliance for businesses</li>
       </ul>
     </div>
 
     <div class="section">
       <h2>Request a Pickup</h2>
-      <p>Ready to recycle? Schedule a free pickup today and we’ll take care of the rest.</p>
+      <p>Ready to recycle? Schedule a pickup today and let us handle the rest.</p>
       <div class="cta">
-        <button onclick="window.location.href='pickup-form.html'">Request Pickup</button>
+        <button onclick="window.location.href='pickup-form.html'">Schedule Now</button>
       </div>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 Tek-Pak Inc. | Green Means Go</p>
+    <p>&copy; 2025 NC Electronic Recycling | Powered by Tek-Pak Inc.</p>
   </footer>
 </body>
 </html>
