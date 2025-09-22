@@ -173,9 +173,88 @@
     </div>
   </section>
 
-  <!-- Main -->
   <main id="main">
-    <!-- Services, How it Works, Accepted Items, Locations, FAQ, Contact (unchanged, same as before) -->
+    <!-- Services -->
+    <section class="section" id="services">
+      <div class="container">
+        <h2>Program Services</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Residential Drop-Off</h3>
+            <p>Bring eligible electronics to any partner site. Staff can assist with unloading and quick screening.</p>
+            <a class="btn btn-secondary" href="#locations">Find Locations</a>
+          </article>
+          <article class="card">
+            <h3>Scheduled Pickup</h3>
+            <p>Curbside or on-premises pickup for households, businesses, and agencies. Certificates available.</p>
+            <a class="btn btn-primary" href="/pickup">Request Pickup</a>
+          </article>
+          <article class="card">
+            <h3>Certified Data Destruction</h3>
+            <p>Secure erasure for drives, phones, and servers. Physical destruction available upon request.</p>
+            <a class="btn btn-secondary" href="/data-destruction">View Procedures</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="section" id="how">
+      <div class="container">
+        <h2>How it Works</h2>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><h4>Check Eligibility</h4><p>Review the accepted items list.</p></div>
+          <div class="step"><div class="num">2</div><h4>Drop Off or Schedule</h4><p>Find a site or submit a pickup request.</p></div>
+          <div class="step"><div class="num">3</div><h4>Certified Processing</h4><p>All storage media sanitized before recycling.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accepted Items -->
+    <section class="section" id="accepted">
+      <div class="container">
+        <h2>Accepted Items</h2>
+        <div class="accept-grid">
+          <div class="chip">Laptops & Desktops</div>
+          <div class="chip">Monitors</div>
+          <div class="chip">Phones & Tablets</div>
+          <div class="chip">Printers</div>
+          <div class="chip">Servers & Networking</div>
+          <div class="chip">Cables</div>
+          <div class="chip">Game Consoles</div>
+          <div class="chip">Small Electronics</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Locations -->
+    <section class="section" id="locations">
+      <div class="container">
+        <h2>Drop-Off Locations</h2>
+        <div class="cards">
+          <article class="card"><h3>Find a Site Near You</h3><p>Use the map to locate the nearest site.</p></article>
+          <article class="card"><h3>Popular Sites</h3><ul><li>Wake County Recycling — Raleigh</li><li>Mecklenburg County Eco-Park — Charlotte</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <h2>FAQ</h2>
+        <details><summary>How do you wipe my data?</summary><p>We use standards-based sanitization.</p></details>
+        <details><summary>Are there fees?</summary><p>Most drop-offs are free. Some items may incur fees.</p></details>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container cards">
+        <div class="card"><h3>Contact Us</h3><p>Email: <a href="mailto:info@ncelectronicrecycling.com">info@ncelectronicrecycling.com</a></p></div>
+        <div class="card"><h3>Media & Agencies</h3><p><a href="/agencies">Agency portal</a></p></div>
+        <div class="card"><h3>Accessibility</h3><p><a href="/accessibility">Accessibility statement</a></p></div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -209,12 +288,12 @@
   </footer>
 
   <script>
-    document.getElementById('year')?.textContent = new Date().getFullYear();
     function toggleMenu(){
       const nav=document.getElementById('mobileNav');
       if(nav) nav.classList.toggle('hidden');
     }
     function closeBanner(){
+      // hides until refresh
       document.getElementById('updateBanner').style.display='none';
     }
   </script>
