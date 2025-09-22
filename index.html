@@ -26,13 +26,18 @@
     }
     .container{max-width:var(--maxw);margin:auto;padding:0 20px}
 
-    .usa-banner{background:#eef3fb;border-bottom:1px solid #d9e3f5;font-size:.95rem;color:#314567}
+    /* Banner */
+    .usa-banner{background:#eef3fb;border-bottom:1px solid #d9e3f5;font-size:.95rem;color:#314567;position:relative}
     .usa-banner .container{padding:8px 20px;text-align:center;font-weight:600}
+    .banner-close{
+      position:absolute;right:10px;top:50%;transform:translateY(-50%);
+      background:none;border:0;color:#314567;font-size:1.2rem;cursor:pointer
+    }
 
     header.site-header{background:var(--indigo);color:#fff;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.12)}
     .site-header .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
-    .brand img{height:72px;width:auto} /* larger logo */
+    .brand img{height:72px;width:auto}
     .brand .title{display:flex;flex-direction:column}
     .brand .title strong{font-size:1.2rem;letter-spacing:.2px}
     .brand .title span{font-size:.9rem;opacity:.9}
@@ -122,11 +127,12 @@
   <a class="hidden" href="#main">Skip to main content</a>
 
   <!-- Top banner with update -->
-  <div class="usa-banner">
+  <div class="usa-banner" id="updateBanner">
     <div class="container">
       UPDATES – September 22, 2025: Site undergoing maintenance, some features may not work. 
       You may contact us via phone at <strong>336-355-1178</strong> for immediate assistance.
     </div>
+    <button class="banner-close" onclick="closeBanner()" aria-label="Close update banner">&times;</button>
   </div>
 
   <header class="site-header">
@@ -150,7 +156,26 @@
     </div>
   </header>
 
-  <!-- rest of the page stays the same (hero, services, steps, etc.) -->
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="lead">
+        <span class="badge">Secure & Responsible</span>
+        <h1>Electronic Recycling for North Carolina — safe, simple, and sustainable.</h1>
+        <p>Drop off or schedule a pickup for computers, phones, and other electronics. Certified data destruction. EPA-aligned processing. Receipts for your records.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/pickup">Request Pickup</a>
+          <a class="btn btn-secondary" href="#locations">Find a Drop-Off</a>
+          <a class="btn btn-secondary" href="/certificate">Get Certificate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <!-- Services, How it Works, Accepted Items, Locations, FAQ, Contact -->
+    <!-- Same as previous build -->
+  </main>
 
   <footer>
     <div class="container foot-grid">
@@ -180,6 +205,9 @@
     function toggleMenu(){
       const nav=document.getElementById('mobileNav');
       if(nav) nav.classList.toggle('hidden');
+    }
+    function closeBanner(){
+      document.getElementById('updateBanner').style.display='none';
     }
   </script>
 </body>
