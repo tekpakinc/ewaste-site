@@ -112,7 +112,22 @@
       display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
     .disclaimer{font-size:.8rem;color:#9fb4ff;margin-top:8px;max-width:600px}
 
-    .tekpak-logo{margin:20px auto;max-width:160px}
+    .footer-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin: 20px auto;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      height: 60px;   /* fixed equal height */
+      width: auto;
+      object-fit: contain;
+    }
+    .tekpak-mono {
+      filter: brightness(0) invert(1); /* Tek-Pak monochrome */
+    }
 
     @media(max-width:960px){
       .cards,.steps,.accept-grid,.foot-grid{grid-template-columns:1fr 1fr}
@@ -277,9 +292,11 @@
       </div>
     </div>
 
-    <!-- Tek-Pak Logo -->
-    <div class="container">
-      <img src="tekpak-logo.png" alt="Tek-Pak Inc logo" class="tekpak-logo" />
+    <!-- Certification & Partner Logos -->
+    <div class="container footer-logos">
+      <img src="tekpak-logo.png" alt="Tek-Pak Inc logo" class="footer-logo tekpak-mono" />
+      <img src="R2v3_Certifications-162.png" alt="R2v3 Compliant Certification" class="footer-logo" />
+      <img src="Registered-removebg-preview.png" alt="NC DEQ Registered" class="footer-logo" />
     </div>
 
     <div class="container sub">
@@ -293,7 +310,6 @@
       if(nav) nav.classList.toggle('hidden');
     }
     function closeBanner(){
-      // hides until refresh
       document.getElementById('updateBanner').style.display='none';
     }
   </script>
