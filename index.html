@@ -1,196 +1,277 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Schedule a Pickup | NC Electronic Recycling</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NC Electronic Recycling | Official Recycling Program</title>
+  <meta name="description" content="NC Electronic Recycling — secure and environmentally responsible electronics disposal for residents, businesses, and local agencies." />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#0B1F44" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+
   <style>
-    :root {
-      --lime: #32cd32;
-      --grey-light: #f4f4f4;
-      --grey-mid: #ddd;
-      --grey-dark: #222;
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;color:#0b1f44;background:#f7f9fc}
+    img{max-width:100%;display:block}
+    a{color:#0a5bd1;text-decoration:underline}
+    a:hover{text-decoration:none}
+    :focus-visible{outline:3px solid #ffbf47;outline-offset:2px}
+
+    :root{
+      --navy:#0B1F44;--indigo:#1C3A7A;--blue:#205493;--light:#f7f9fc;
+      --card:#fff;--muted:#5a6b8c;--accent:#FFD60A;--accent-2:#E6C200;
+      --border:#dde6f2;--shadow:0 6px 20px rgba(11,31,68,.08);
+      --radius:14px;--radius-sm:10px;--maxw:1200px;
+    }
+    .container{max-width:var(--maxw);margin:auto;padding:0 20px}
+
+    .usa-banner{background:#eef3fb;border-bottom:1px solid #d9e3f5;font-size:.95rem;color:#314567}
+    .usa-banner .container{display:flex;align-items:center;gap:12px;padding:8px 20px}
+    .usa-banner small{opacity:.9}.usa-banner .domain{font-weight:600}
+
+    header.site-header{background:var(--indigo);color:#fff;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+    .site-header .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
+    .brand img{height:48px;width:auto}
+    .brand .title{display:flex;flex-direction:column}
+    .brand .title strong{font-size:1.05rem;letter-spacing:.2px}
+    .brand .title span{font-size:.85rem;opacity:.9}
+    nav.primary{display:flex;gap:6px;align-items:center}
+    nav.primary a{color:#e8efff;text-decoration:none;padding:10px 12px;border-radius:8px}
+    nav.primary a:hover,nav.primary a[aria-current="page"]{background:rgba(255,255,255,.12)}
+    .menu-btn{display:none;background:transparent;border:1px solid #9db4e7;color:#fff;padding:8px 10px;border-radius:8px}
+
+    .hero{background:radial-gradient(1200px 400px at 50% -200px,#264b93 10%,#1c3a7a 60%,#0b1f44 100%);
+      color:#fff;padding:64px 0 40px;position:relative;overflow:hidden}
+    .hero .lead{max-width:740px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;font-size:.85rem;background:#11397a;border:1px solid rgba(255,255,255,.25);border-radius:999px;margin-bottom:14px}
+    .hero h1{margin:.2rem 0 .6rem;font-size:clamp(1.6rem,1.6rem + 2vw,2.6rem)}
+    .hero p{color:#e9efff;margin:0 0 18px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border:0;
+      border-radius:10px;
+      padding:12px 16px;
+      font-weight:600;
+      text-decoration:none;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+      transition: background .2s, color .2s, border .2s;
+    }
+    .btn-primary {
+      background:var(--accent);
+      color:var(--navy);
+    }
+    .btn-primary:hover {
+      background:var(--accent-2);
+      color:var(--navy);
+    }
+    .btn-secondary {
+      background:#fff;
+      color:var(--accent);
+      border:2px solid var(--accent);
+    }
+    .btn-secondary:hover {
+      background:var(--accent);
+      color:#fff;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", Arial, sans-serif;
-    }
+    .section{padding:42px 0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:.2rem 0 .4rem}
+    .card p{color:var(--muted);margin:.2rem 0 1rem}
 
-    body {
-      background: linear-gradient(135deg, #e6e6e6, #cfcfcf);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .step{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .step .num{width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--navy);display:grid;place-items:center;font-weight:700}
+    .step h4{margin:.4rem 0}
 
-    header {
-      background: linear-gradient(to bottom, #ffffff, #dcdcdc);
-      color: var(--grey-dark);
-      text-align: center;
-      padding: 2.5rem 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
+    .accept-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .chip{background:#f0f6f3;border:1px solid #d6eadf;padding:10px 12px;border-radius:999px}
 
-    header h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
+    details{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;box-shadow:var(--shadow)}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:600;list-style:none}
+    summary::-webkit-details-marker{display:none}
 
-    header p {
-      font-size: 1rem;
-      opacity: 0.8;
-    }
+    footer{background:#0b1f44;color:#bcd0ff;padding:36px 0 18px;margin-top:20px}
+    footer a{color:#cfe0ff}
+    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:18px}
+    .foot-grid h5{color:#fff;margin:.2rem 0 .6rem}
+    .sub{border-top:1px solid rgba(255,255,255,.15);margin-top:18px;padding-top:12px;font-size:.9rem;
+      display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+    .disclaimer{font-size:.8rem;color:#9fb4ff;margin-top:8px;max-width:600px}
 
-    .form-container {
-      flex: 1;
-      max-width: 750px;
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(20px) saturate(150%);
-      margin: 2.5rem auto;
-      padding: 2.2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 26px rgba(0,0,0,0.25), inset 0 2px 4px rgba(255,255,255,0.6);
-      border: 1px solid rgba(255,255,255,0.5);
+    @media(max-width:960px){
+      .cards,.steps,.accept-grid,.foot-grid{grid-template-columns:1fr 1fr}
+      nav.primary{display:none}
+      .menu-btn{display:inline-block}
     }
-
-    .form-container h2 {
-      margin-bottom: 1.2rem;
-      font-size: 1.8rem;
-      color: var(--grey-dark);
-      text-shadow: 0 1px 2px rgba(255,255,255,0.7);
-    }
-
-    label {
-      display: block;
-      margin: 1rem 0 0.4rem;
-      font-weight: 600;
-      color: var(--grey-dark);
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 0.9rem;
-      border: 1px solid var(--grey-mid);
-      border-radius: 10px;
-      font-size: 1rem;
-      background: rgba(255,255,255,0.9);
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-      transition: all 0.2s ease;
-    }
-
-    input:focus, textarea:focus {
-      border-color: var(--lime);
-      box-shadow: 0 0 12px rgba(50,205,50,0.5), inset 0 2px 6px rgba(0,0,0,0.15);
-      outline: none;
-    }
-
-    textarea {
-      resize: vertical;
-    }
-
-    button {
-      margin-top: 1.8rem;
-      background: rgba(255,255,255,0.15);
-      color: var(--grey-dark);
-      border: 1px solid rgba(255,255,255,0.4);
-      padding: 0.9rem 1.6rem;
-      border-radius: 12px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-shadow: 0 1px 2px rgba(255,255,255,0.8);
-      box-shadow: inset 0 1px 2px rgba(255,255,255,0.7),
-                  0 4px 12px rgba(0,0,0,0.2),
-                  0 0 12px rgba(50,205,50,0.6);
-      transition: all 0.25s ease;
-    }
-
-    button:hover {
-      background: rgba(255,255,255,0.25);
-      box-shadow: inset 0 1px 2px rgba(255,255,255,0.7),
-                  0 6px 16px rgba(0,0,0,0.25),
-                  0 0 20px rgba(50,205,50,0.9);
-      transform: translateY(-2px);
-    }
-
-    footer {
-      background: linear-gradient(to top, #dcdcdc, #ffffff);
-      color: var(--grey-dark);
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+    @media(max-width:560px){
+      .cards,.steps,.accept-grid{grid-template-columns:1fr}
+      .hero{padding:48px 0 28px}
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Schedule an E-Waste Pickup</h1>
-    <p>Fill out the form below and we’ll take care of the rest.</p>
-  </header>
+  <a class="hidden" href="#main">Skip to main content</a>
 
-  <div class="form-container">
-    <h2>Pickup Request Form</h2>
-    <form id="pickupForm">
-      <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email *</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="phone">Phone Number *</label>
-      <input type="tel" id="phone" name="phone" required>
-
-      <label for="address">Pickup Address *</label>
-      <textarea id="address" name="address" rows="3" required></textarea>
-
-      <label for="items">Items for Recycling *</label>
-      <textarea id="items" name="items" rows="4" placeholder="e.g., 3 laptops, 2 printers, 1 server..." required></textarea>
-
-      <label for="date">Preferred Pickup Date</label>
-      <input type="date" id="date" name="date">
-
-      <label for="notes">Additional Notes</label>
-      <textarea id="notes" name="notes" rows="3"></textarea>
-
-      <button type="submit">Submit Request</button>
-    </form>
+  <div class="usa-banner">
+    <div class="container">
+      <small><span class="domain">An official-style program site</span> — for NC Electronic Recycling.</small>
+    </div>
   </div>
 
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="/">
+        <img src="A_logo_for_NC_Electronic_Recycling.png" alt="NC Electronic Recycling logo" />
+        <span class="title">
+          <strong>NC Electronic Recycling</strong>
+          <span>Public Recycling Program</span>
+        </span>
+      </a>
+      <nav class="primary">
+        <a href="#services" aria-current="page">Services</a>
+        <a href="#how">How it Works</a>
+        <a href="#accepted">Accepted Items</a>
+        <a href="#locations">Locations</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="lead">
+        <span class="badge">Secure & Responsible</span>
+        <h1>Electronic Recycling for North Carolina — safe, simple, and sustainable.</h1>
+        <p>Drop off or schedule a pickup for computers, phones, and other electronics. Certified data destruction. EPA-aligned processing. Receipts for your records.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/pickup">Request Pickup</a>
+          <a class="btn btn-secondary" href="#locations">Find a Drop-Off</a>
+          <a class="btn btn-secondary" href="/certificate">Get Certificate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <section class="section" id="services">
+      <div class="container">
+        <h2>Program Services</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Residential Drop-Off</h3>
+            <p>Bring eligible electronics to any partner site. Staff can assist with unloading and quick screening.</p>
+            <a class="btn btn-secondary" href="#locations">Find Locations</a>
+          </article>
+          <article class="card">
+            <h3>Scheduled Pickup</h3>
+            <p>Curbside or on-premises pickup for households, businesses, and agencies. Certificates available.</p>
+            <a class="btn btn-primary" href="/pickup">Request Pickup</a>
+          </article>
+          <article class="card">
+            <h3>Certified Data Destruction</h3>
+            <p>Secure erasure for drives, phones, and servers. Physical destruction available upon request.</p>
+            <a class="btn btn-secondary" href="/data-destruction">View Procedures</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <h2>How it Works</h2>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><h4>Check Eligibility</h4><p>Review the accepted items list.</p></div>
+          <div class="step"><div class="num">2</div><h4>Drop Off or Schedule</h4><p>Find a site or submit a pickup request.</p></div>
+          <div class="step"><div class="num">3</div><h4>Certified Processing</h4><p>All storage media sanitized before recycling.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="accepted">
+      <div class="container">
+        <h2>Accepted Items</h2>
+        <div class="accept-grid">
+          <div class="chip">Laptops & Desktops</div>
+          <div class="chip">Monitors</div>
+          <div class="chip">Phones & Tablets</div>
+          <div class="chip">Printers</div>
+          <div class="chip">Servers & Networking</div>
+          <div class="chip">Cables</div>
+          <div class="chip">Game Consoles</div>
+          <div class="chip">Small Electronics</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="locations">
+      <div class="container">
+        <h2>Drop-Off Locations</h2>
+        <div class="cards">
+          <article class="card"><h3>Find a Site Near You</h3><p>Use the map to locate the nearest site.</p></article>
+          <article class="card"><h3>Popular Sites</h3><ul><li>Wake County Recycling — Raleigh</li><li>Mecklenburg County Eco-Park — Charlotte</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <h2>FAQ</h2>
+        <details><summary>How do you wipe my data?</summary><p>We use standards-based sanitization.</p></details>
+        <details><summary>Are there fees?</summary><p>Most drop-offs are free. Some items may incur fees.</p></details>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container cards">
+        <div class="card"><h3>Contact Us</h3><p>Email: <a href="mailto:info@ncelectronicrecycling.com">info@ncelectronicrecycling.com</a></p></div>
+        <div class="card"><h3>Media & Agencies</h3><p><a href="/agencies">Agency portal</a></p></div>
+        <div class="card"><h3>Accessibility</h3><p><a href="/accessibility">Accessibility statement</a></p></div>
+      </div>
+    </section>
+  </main>
+
   <footer>
-    <p>&copy; 2025 NC Electronic Recycling | A Tek-Pak Inc. Service</p>
+    <div class="container foot-grid">
+      <div>
+        <h5>NC Electronic Recycling</h5>
+        <p class="muted">A public recycling initiative supporting secure, responsible electronics recovery across North Carolina.</p>
+        <p class="muted">This site presents program information and resources for residents, businesses, and local agencies.</p>
+        <p class="disclaimer"><strong>Disclaimer:</strong> NC Electronic Recycling is an independent program and is not directly affiliated with the North Carolina state government.</p>
+      </div>
+      <div>
+        <h5>Programs</h5><ul><li><a href="/residential">Residential</a></li><li><a href="/business">Business</a></li></ul>
+      </div>
+      <div>
+        <h5>Resources</h5><ul><li><a href="/accepted-items">Accepted Items</a></li><li><a href="/locations">Locations</a></li></ul>
+      </div>
+      <div>
+        <h5>Policies</h5><ul><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li></ul>
+      </div>
+    </div>
+    <div class="container sub">
+      <span>&copy; <span id="year"></span> NC Electronic Recycling</span>
+    </div>
   </footer>
 
   <script>
-    document.getElementById("pickupForm").addEventListener("submit", async function(e) {
-      e.preventDefault();
-
-      const data = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        phone: document.getElementById("phone").value,
-        address: document.getElementById("address").value,
-        items: document.getElementById("items").value,
-        date: document.getElementById("date").value,
-        notes: document.getElementById("notes").value
-      };
-
-      const response = await fetch("YOUR_WEB_APP_URL", {
-        method: "POST",
-        body: JSON.stringify(data)
-      });
-
-      if (response.ok) {
-        alert("Request submitted successfully!");
-        document.getElementById("pickupForm").reset();
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function toggleMenu(){
+      const nav=document.getElementById('mobileNav');
+      if(nav) nav.classList.toggle('hidden');
+    }
   </script>
 </body>
 </html>
