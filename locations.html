@@ -1,1 +1,128 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locations • NC Electronic Recycling</title>
+  <meta name="description" content="Find NC Electronic Recycling locations and drop-off sites for safe, responsible electronic waste recycling.">
+  <style>
+    :root {
+      --primary: #3a7a3f;   /* green */
+      --accent: #0077cc;    /* blue */
+      --light: #f7f7f7;
+      --dark: #222;
+      --radius: 10px;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+    }
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    nav {
+      margin-top: .5rem;
+    }
+    nav a {
+      color: white;
+      margin: 0 .75rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      width: min(1100px, 95%);
+      margin: 2rem auto;
+    }
+    h2 {
+      color: var(--primary);
+      margin-top: 2rem;
+    }
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    }
+    .card h3 {
+      margin: 0 0 .5rem;
+      color: var(--accent);
+    }
+    .card p {
+      margin: .2rem 0;
+      font-size: .95rem;
+    }
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NC Electronic Recycling</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="locations.html">Locations</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Our Locations</h2>
+    <p>We’re proud to serve North Carolina communities with convenient drop-off and collection sites. Find the nearest location below:</p>
+
+    <div class="location-grid">
+      <div class="card">
+        <h3>Burlington Facility</h3>
+        <p>123 Greenway Rd.<br>Burlington, NC 27215</p>
+        <p><strong>Hours:</strong> Mon–Fri 9am–5pm</p>
+        <p><strong>Phone:</strong> (336) 555-1234</p>
+      </div>
+      <div class="card">
+        <h3>Graham Drop-Off</h3>
+        <p>456 Riverbend Dr.<br>Graham, NC 27253</p>
+        <p><strong>Hours:</strong> Tue–Sat 10am–4pm</p>
+        <p><strong>Phone:</strong> (336) 555-5678</p>
+      </div>
+      <div class="card">
+        <h3>Greensboro Collection Center</h3>
+        <p>789 Elm St.<br>Greensboro, NC 27401</p>
+        <p><strong>Hours:</strong> Mon–Sat 9am–6pm</p>
+        <p><strong>Phone:</strong> (336) 555-9012</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="yr"></span> NC Electronic Recycling — All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
