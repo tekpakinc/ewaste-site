@@ -10,17 +10,10 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    .map-frame {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      width: 100%;
-      height: 400px;
-    }
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
     }
     .card {
       background: var(--card);
@@ -29,8 +22,15 @@
       padding: 18px;
       box-shadow: var(--shadow);
     }
-    .card h3 { color: var(--blue); margin:.2rem 0 .4rem; }
-    .loading { text-align:center; color:var(--muted); font-style:italic; }
+    .card h3 { color: var(--blue); margin-top: 0; }
+    .map-frame {
+      width: 100%;
+      height: 240px;
+      border: 0;
+      border-radius: var(--radius-sm);
+      margin-top: 10px;
+      box-shadow: var(--shadow);
+    }
   </style>
 </head>
 <body>
@@ -68,21 +68,60 @@
   </section>
 
   <main id="main">
-    <!-- Map -->
-    <section class="section">
-      <div class="container">
-        <h2>Interactive Map</h2>
-        <p>Explore locations on the map or view the full list below.</p>
-        <div id="map" class="map-frame"></div>
-      </div>
-    </section>
-
-    <!-- Location Cards -->
+    <!-- Locations -->
     <section class="section">
       <div class="container">
         <h2>Our Facilities</h2>
-        <div id="locations" class="cards">
-          <p class="loading">Loading locations...</p>
+        <div class="cards">
+
+          <article class="card">
+            <h3>Burlington Collections Facility</h3>
+            <p>4852 Farm View Dr.<br>Burlington, NC 27217</p>
+            <p><strong>Hours:</strong> Mon–Fri 10am–6pm</p>
+            <p><strong>Phone:</strong> (336) 355-1178</p>
+            <iframe class="map-frame"
+              src="https://www.google.com/maps?q=4852+Farm+View+Dr+Burlington+NC+27217&output=embed"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+          </article>
+
+                    <article class="card">
+            <h3>Whitsett Corporate Office</h3>
+            <p>7719 Oliver Park Dr.<br>Whitsett, NC 27377</p>
+            <p><strong>Hours:</strong> Employees Only</p>
+            <p><strong>Phone:</strong> (336) 355-1178</p>
+            <iframe class="map-frame"
+              src="https://www.google.com/maps?q=7719+Oliver+Park+Dr+Burlington+NC+27215&output=embed"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+          </article>
+
+          <article class="card">
+            <h3>Graham Sorting Facility</h3>
+            <p>Bethel Southfork Rd<br>Graham, NC 27253</p>
+            <p><strong>Hours:</strong> Employees Only</p>
+            <p><strong>Phone:</strong> (336) 355-1178</p>
+            <iframe class="map-frame"
+              src="https://www.google.com/maps?q=456+Bethel+Southfork+Rd+Graham+NC+27253&output=embed"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+          </article>
+
+          <article class="card">
+            <h3>Reidsville Logistics Center</h3>
+            <p>789 Elm St.<br>Greensboro, NC 27401</p>
+            <p><strong>Hours:</strong> By Appointment Only</p>
+            <p><strong>Phone:</strong> (336) 355-1178</p>
+            <iframe class="map-frame"
+              src="https://www.google.com/maps?q=789+Elm+St+Reidsville+NC+27401&output=embed"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+          </article>
+
         </div>
       </div>
     </section>
@@ -113,71 +152,11 @@
     </div>
   </footer>
 
-  <!-- Google Maps API -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-
   <script>
     function toggleMenu(){
       const nav=document.getElementById('mobileNav');
       if(nav) nav.classList.toggle('hidden');
     }
-
-    // Load CSV from published Google Sheet
-    async function loadLocations(){
-      const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT-d7EWJ0cfEc-e0xqAfOSWQktP3hspjvnjiKxPTNF41PPU00XtJCa_wvLl7i0y1h2w8mleuoKAaB5x/pubhtml"; // replace with your sheet's CSV URL
-      const container = document.getElementById("locations");
-      try {
-        const res = await fetch(url);
-        const text = await res.text();
-        const rows = text.trim().split("\n").map(r => r.split(","));
-        const [header, ...data] = rows;
-        container.innerHTML = "";
-        const locs = [];
-        data.forEach(row => {
-          const obj = {};
-          header.forEach((h, i) => obj[h.trim()] = row[i]);
-          locs.push(obj);
-
-          // build card
-          const card = document.createElement("article");
-          card.className = "card";
-          card.innerHTML = `
-            <h3>${obj.Name}</h3>
-            <p>${obj.Address}<br>${obj.City}, ${obj.State} ${obj.Zip}</p>
-            <p><strong>Hours:</strong> ${obj.Hours}</p>
-            <p><strong>Phone:</strong> ${obj.Phone}</p>
-          `;
-          container.appendChild(card);
-        });
-        initMap(locs);
-      } catch(err){
-        container.innerHTML = "<p class='loading'>Could not load locations.</p>";
-      }
-    }
-
-    // Initialize Google Map with pins
-    function initMap(locs){
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 8,
-        center: { lat: 35.8, lng: -79.0 } // NC center
-      });
-      locs.forEach(loc => {
-        const lat = parseFloat(loc.Lat), lng = parseFloat(loc.Lng);
-        if(!isNaN(lat) && !isNaN(lng)){
-          const marker = new google.maps.Marker({
-            position: { lat, lng },
-            map,
-            title: loc.Name
-          });
-          const info = new google.maps.InfoWindow({
-            content: `<strong>${loc.Name}</strong><br>${loc.Address}, ${loc.City}, ${loc.State} ${loc.Zip}<br><em>${loc.Hours}</em>`
-          });
-          marker.addListener("click", () => info.open(map, marker));
-        }
-      });
-    }
-
-    loadLocations();
   </script>
 </body>
 </html>
