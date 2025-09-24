@@ -1,128 +1,183 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Locations • NC Electronic Recycling</title>
-  <meta name="description" content="Find NC Electronic Recycling locations and drop-off sites for safe, responsible electronic waste recycling.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drop-Off Locations | NC Electronic Recycling</title>
+  <meta name="description" content="Find NC Electronic Recycling drop-off locations across North Carolina. Safe and responsible electronics recycling for residents, businesses, and agencies." />
+  <meta name="theme-color" content="#0B1F44" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+
   <style>
-    :root {
-      --primary: #3a7a3f;   /* green */
-      --accent: #0077cc;    /* blue */
-      --light: #f7f7f7;
-      --dark: #222;
-      --radius: 10px;
+    .map-frame {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      height: 400px;
     }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--light);
-      color: var(--dark);
-    }
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    nav {
-      margin-top: .5rem;
-    }
-    nav a {
-      color: white;
-      margin: 0 .75rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      width: min(1100px, 95%);
-      margin: 2rem auto;
-    }
-    h2 {
-      color: var(--primary);
-      margin-top: 2rem;
-    }
-    .location-grid {
+    .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
+      gap: 18px;
     }
     .card {
-      background: white;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      padding: 18px;
+      box-shadow: var(--shadow);
     }
-    .card h3 {
-      margin: 0 0 .5rem;
-      color: var(--accent);
-    }
-    .card p {
-      margin: .2rem 0;
-      font-size: .95rem;
-    }
-    footer {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-      font-size: .9rem;
-    }
+    .card h3 { color: var(--blue); margin:.2rem 0 .4rem; }
+    .loading { text-align:center; color:var(--muted); font-style:italic; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>NC Electronic Recycling</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="locations.html">Locations</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="/">
+        <img src="A_logo_for_NC_Electronic_Recycling.png" alt="NC Electronic Recycling logo" />
+        <span class="title">
+          <strong>NC Electronic Recycling</strong>
+          <span>Public Recycling Program</span>
+        </span>
+      </a>
+      <nav class="primary">
+        <a href="/services">Services</a>
+        <a href="/how">How it Works</a>
+        <a href="/accepted-items">Accepted Items</a>
+        <a href="/locations" aria-current="page">Locations</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+    </div>
   </header>
 
-  <main>
-    <h2>Our Locations</h2>
-    <p>We’re proud to serve North Carolina communities with convenient drop-off and collection sites. Find the nearest location below:</p>
-
-    <div class="location-grid">
-      <div class="card">
-        <h3>Burlington Facility</h3>
-        <p>123 Greenway Rd.<br>Burlington, NC 27215</p>
-        <p><strong>Hours:</strong> Mon–Fri 9am–5pm</p>
-        <p><strong>Phone:</strong> (336) 555-1234</p>
-      </div>
-      <div class="card">
-        <h3>Graham Drop-Off</h3>
-        <p>456 Riverbend Dr.<br>Graham, NC 27253</p>
-        <p><strong>Hours:</strong> Tue–Sat 10am–4pm</p>
-        <p><strong>Phone:</strong> (336) 555-5678</p>
-      </div>
-      <div class="card">
-        <h3>Greensboro Collection Center</h3>
-        <p>789 Elm St.<br>Greensboro, NC 27401</p>
-        <p><strong>Hours:</strong> Mon–Sat 9am–6pm</p>
-        <p><strong>Phone:</strong> (336) 555-9012</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="lead">
+        <span class="badge">Find a Drop-Off</span>
+        <h1>Recycling Locations Across North Carolina</h1>
+        <p>Convenient sites where residents, businesses, and agencies can drop off electronics for secure recycling and certified data destruction.</p>
       </div>
     </div>
+  </section>
+
+  <main id="main">
+    <!-- Map -->
+    <section class="section">
+      <div class="container">
+        <h2>Interactive Map</h2>
+        <p>Explore locations on the map or view the full list below.</p>
+        <div id="map" class="map-frame"></div>
+      </div>
+    </section>
+
+    <!-- Location Cards -->
+    <section class="section">
+      <div class="container">
+        <h2>Our Facilities</h2>
+        <div id="locations" class="cards">
+          <p class="loading">Loading locations...</p>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    © <span id="yr"></span> NC Electronic Recycling — All rights reserved.
+    <div class="container foot-grid">
+      <div>
+        <h5>NC Electronic Recycling</h5>
+        <p class="muted">A public recycling initiative supporting secure, responsible electronics recovery across North Carolina.</p>
+      </div>
+      <div>
+        <h5>Programs</h5>
+        <ul><li><a href="/residential">Residential</a></li><li><a href="/business">Business</a></li></ul>
+      </div>
+      <div>
+        <h5>Resources</h5>
+        <ul><li><a href="/accepted-items">Accepted Items</a></li><li><a href="/locations">Locations</a></li></ul>
+      </div>
+      <div>
+        <h5>Policies</h5>
+        <ul><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li></ul>
+      </div>
+    </div>
+    <div class="container sub">
+      <span>© Copyright 2025 an initiative of TEK-PAK INC</span>
+    </div>
   </footer>
 
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+
   <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
+    function toggleMenu(){
+      const nav=document.getElementById('mobileNav');
+      if(nav) nav.classList.toggle('hidden');
+    }
+
+    // Load CSV from published Google Sheet
+    async function loadLocations(){
+      const url = "https://docs.google.com/spreadsheets/d/e/YOUR_SHEET_ID/pub?output=csv"; // replace with your sheet's CSV URL
+      const container = document.getElementById("locations");
+      try {
+        const res = await fetch(url);
+        const text = await res.text();
+        const rows = text.trim().split("\n").map(r => r.split(","));
+        const [header, ...data] = rows;
+        container.innerHTML = "";
+        const locs = [];
+        data.forEach(row => {
+          const obj = {};
+          header.forEach((h, i) => obj[h.trim()] = row[i]);
+          locs.push(obj);
+
+          // build card
+          const card = document.createElement("article");
+          card.className = "card";
+          card.innerHTML = `
+            <h3>${obj.Name}</h3>
+            <p>${obj.Address}<br>${obj.City}, ${obj.State} ${obj.Zip}</p>
+            <p><strong>Hours:</strong> ${obj.Hours}</p>
+            <p><strong>Phone:</strong> ${obj.Phone}</p>
+          `;
+          container.appendChild(card);
+        });
+        initMap(locs);
+      } catch(err){
+        container.innerHTML = "<p class='loading'>Could not load locations.</p>";
+      }
+    }
+
+    // Initialize Google Map with pins
+    function initMap(locs){
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 8,
+        center: { lat: 35.8, lng: -79.0 } // NC center
+      });
+      locs.forEach(loc => {
+        const lat = parseFloat(loc.Lat), lng = parseFloat(loc.Lng);
+        if(!isNaN(lat) && !isNaN(lng)){
+          const marker = new google.maps.Marker({
+            position: { lat, lng },
+            map,
+            title: loc.Name
+          });
+          const info = new google.maps.InfoWindow({
+            content: `<strong>${loc.Name}</strong><br>${loc.Address}, ${loc.City}, ${loc.State} ${loc.Zip}<br><em>${loc.Hours}</em>`
+          });
+          marker.addListener("click", () => info.open(map, marker));
+        }
+      });
+    }
+
+    loadLocations();
   </script>
 </body>
 </html>
