@@ -5,311 +5,151 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NC Electronic Recycling | Official Recycling Program</title>
   <meta name="description" content="NC Electronic Recycling — secure and environmentally responsible electronics disposal for residents, businesses, and local agencies." />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="theme-color" content="#0B1F44" />
-
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-
+  <meta name="theme-color" content="#0b1f44" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
   <style>
     *,*::before,*::after{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;color:#0b1f44;background:#f7f9fc}
-    img{max-width:100%;display:block}
-    a{color:#0a5bd1;text-decoration:underline}
-    a:hover{text-decoration:none}
-    :focus-visible{outline:3px solid #ffbf47;outline-offset:2px}
-
     :root{
-      --navy:#0B1F44;--indigo:#1C3A7A;--blue:#205493;--light:#f7f9fc;
-      --card:#fff;--muted:#5a6b8c;--accent:#FFD60A;--accent-2:#E6C200;
-      --border:#dde6f2;--shadow:0 6px 20px rgba(11,31,68,.08);
-      --radius:14px;--radius-sm:10px;--maxw:1200px;
+      --navy:#0b1f44;--navy-2:#132f63;--blue:#205493;--blue-2:#2d66aa;
+      --gold:#ffd60a;--gold-2:#e5b900;--gold-pale:#fff4ad;
+      --paper:#f5f7fa;--card:#fff;--ink:#162744;--muted:#5c6d89;
+      --border:#d9e2ef;--shadow:0 8px 24px rgba(11,31,68,.09);
+      --shadow-lg:0 18px 42px rgba(11,31,68,.14);--radius:12px;--maxw:1200px;
     }
-    .container{max-width:var(--maxw);margin:auto;padding:0 20px}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55;color:var(--ink);background:var(--paper)}
+    img{max-width:100%;display:block}a{color:#1259a7}a:hover{text-decoration:none}
+    :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .container{max-width:var(--maxw);margin:auto;padding:0 22px}
 
-    /* Banner */
-    .usa-banner{background:#eef3fb;border-bottom:1px solid #d9e3f5;font-size:.95rem;color:#314567;position:relative}
-    .usa-banner .container{padding:8px 20px;text-align:center;font-weight:600}
-    .banner-close{
-      position:absolute;right:10px;top:50%;transform:translateY(-50%);
-      background:none;border:0;color:#314567;font-size:1.2rem;cursor:pointer
-    }
+    .usa-banner{position:relative;background:#edf2f8;border-bottom:1px solid #d4dfed;color:#314767;font-size:.9rem}
+    .usa-banner .container{padding-top:8px;padding-bottom:8px;text-align:center;font-weight:650}
+    .banner-close{position:absolute;right:12px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#314767;font-size:1.35rem;cursor:pointer}
 
-    header.site-header{background:var(--indigo);color:#fff;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.12)}
-    .site-header .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
-    .brand img{height:72px;width:auto}
-    .brand .title{display:flex;flex-direction:column}
-    .brand .title strong{font-size:1.2rem;letter-spacing:.2px}
-    .brand .title span{font-size:.9rem;opacity:.9}
-    nav.primary{display:flex;gap:6px;align-items:center}
-    nav.primary a{color:#e8efff;text-decoration:none;padding:10px 12px;border-radius:8px}
-    nav.primary a:hover,nav.primary a[aria-current="page"]{background:rgba(255,255,255,.12)}
-    .menu-btn{display:none;background:transparent;border:1px solid #9db4e7;color:#fff;padding:8px 10px;border-radius:8px}
+    .site-header{position:sticky;top:0;z-index:50;color:#fff;background:linear-gradient(180deg,#17366f 0%,#102a58 56%,#0b1f44 100%);border-bottom:4px solid var(--gold);box-shadow:0 5px 18px rgba(4,18,44,.28)}
+    .site-header::before{content:"";display:block;height:3px;background:linear-gradient(90deg,#d6aa00,#fff078,#d6aa00)}
+    .header-bar{min-height:92px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:flex;align-items:center;gap:15px;color:#fff;text-decoration:none;min-width:0}
+    .brand img{height:70px;width:auto;filter:drop-shadow(0 4px 7px rgba(0,0,0,.2))}
+    .brand-title{display:flex;flex-direction:column;line-height:1.2}
+    .brand-title strong{font-family:Georgia,"Times New Roman",serif;font-size:1.32rem;letter-spacing:.01em}
+    .brand-title span{margin-top:5px;color:#dce7f7;font-size:.82rem;text-transform:uppercase;letter-spacing:.11em;font-weight:700}
+    .primary-nav{display:flex;align-items:center;gap:3px}
+    .primary-nav a{color:#edf4ff;text-decoration:none;padding:11px 12px;border-radius:7px;font-size:.92rem;font-weight:700;border:1px solid transparent}
+    .primary-nav a:hover,.primary-nav a[aria-current="page"]{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)}
+    .menu-btn{display:none;border:1px solid rgba(255,255,255,.45);background:linear-gradient(#244b88,#16386f);color:#fff;border-radius:7px;padding:9px 13px;font-weight:750;box-shadow:inset 0 1px rgba(255,255,255,.25)}
 
-    .hero{background:radial-gradient(1200px 400px at 50% -200px,#264b93 10%,#1c3a7a 60%,#0b1f44 100%);
-      color:#fff;padding:64px 0 40px;position:relative;overflow:hidden}
-    .hero .lead{max-width:740px}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;font-size:.85rem;background:#11397a;border:1px solid rgba(255,255,255,.25);border-radius:999px;margin-bottom:14px}
-    .hero h1{margin:.2rem 0 .6rem;font-size:clamp(1.6rem,1.6rem + 2vw,2.6rem)}
-    .hero p{color:#e9efff;margin:0 0 18px}
-    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(115deg,#0b1f44 0%,#173b79 58%,#1e4c91 100%);padding:66px 0 54px;border-bottom:1px solid #d5deeb}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 0 62%,rgba(255,255,255,.05) 62% 63%,transparent 63% 100%);background-size:34px 100%;pointer-events:none}
+    .hero .lead{position:relative;z-index:1;max-width:790px}
+    .program-label{display:inline-flex;align-items:center;gap:9px;margin-bottom:15px;padding:7px 11px;border:1px solid rgba(255,255,255,.3);border-radius:6px;background:rgba(7,24,56,.42);font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+    .program-label::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(255,214,10,.16)}
+    .hero h1{font-family:Georgia,"Times New Roman",serif;margin:0 0 14px;font-size:clamp(2.15rem,5vw,3.85rem);line-height:1.08;letter-spacing:-.02em}
+    .hero p{max-width:760px;margin:0;color:#e4ebf6;font-size:1.08rem}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:27px}
 
-    .btn {
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      border:0;
-      border-radius:10px;
-      padding:12px 16px;
-      font-weight:600;
-      text-decoration:none;
-      cursor:pointer;
-      box-shadow:var(--shadow);
-      transition: background .2s, color .2s, border .2s;
-    }
-    .btn-primary {
-      background:var(--accent);
-      color:var(--navy);
-    }
-    .btn-primary:hover {
-      background:var(--accent-2);
-      color:var(--navy);
-    }
-    .btn-secondary {
-      background:#fff;
-      color:var(--accent);
-      border:2px solid var(--accent);
-    }
-    .btn-secondary:hover {
-      background:var(--accent);
-      color:#fff;
-    }
+    .btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:45px;padding:11px 17px;border-radius:8px;text-decoration:none;font-weight:800;border:1px solid transparent;cursor:pointer;transition:transform .16s ease,box-shadow .16s ease,filter .16s ease}
+    .btn::before{content:"";position:absolute;z-index:-1;left:5px;right:5px;top:3px;height:45%;border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.06));opacity:.78}
+    .btn:hover{transform:translateY(-2px);filter:saturate(1.05)}
+    .btn:active{transform:translateY(0)}
+    .btn-primary{color:#152445;border-color:#cda700;background:linear-gradient(180deg,#ffed72 0%,#ffd60a 48%,#e3b700 100%);box-shadow:inset 0 1px #fff6b8,inset 0 -2px rgba(120,86,0,.2),0 4px 0 #a98200,0 9px 18px rgba(11,31,68,.2)}
+    .btn-primary:hover{box-shadow:inset 0 1px #fff9c9,inset 0 -2px rgba(120,86,0,.18),0 5px 0 #9b7900,0 13px 24px rgba(11,31,68,.24)}
+    .btn-secondary{color:#12315e;border-color:#9eb4d1;background:linear-gradient(180deg,#fff 0%,#eef3f9 56%,#dfe8f3 100%);box-shadow:inset 0 1px #fff,0 3px 0 #aab9cb,0 8px 16px rgba(11,31,68,.13)}
+    .btn-secondary::before{opacity:.55}
 
-    .section{padding:42px 0}
+    .section{padding:48px 0}.section:nth-of-type(even){background:#eef2f7;border-top:1px solid #e0e7f0;border-bottom:1px solid #e0e7f0}
+    .section h2{font-family:Georgia,"Times New Roman",serif;color:var(--navy);font-size:clamp(1.65rem,3vw,2.25rem);margin:0 0 22px;padding-bottom:10px;border-bottom:2px solid #d4deeb;position:relative}
+    .section h2::after{content:"";position:absolute;left:0;bottom:-2px;width:72px;height:3px;background:var(--gold)}
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .card h3{margin:.2rem 0 .4rem}
-    .card p{color:var(--muted);margin:.2rem 0 1rem}
+    .card,.step,details{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card{padding:22px}.card h3{margin:.05rem 0 .45rem;color:var(--navy)}.card p{color:var(--muted);margin:.2rem 0 1.05rem}
+    .card .btn{margin-top:4px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{padding:21px}.step .num{width:36px;height:36px;border-radius:6px;display:grid;place-items:center;font-weight:900;color:var(--navy);background:linear-gradient(#ffed72,#ffd60a);border:1px solid #d1aa00;box-shadow:inset 0 1px #fff7bc,0 2px 0 #af8a00}.step h4{margin:.65rem 0 .25rem}.step p{margin:0;color:var(--muted)}
+    .accept-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.chip{padding:11px 13px;border-radius:7px;background:#fff;border:1px solid #cedbeb;border-left:4px solid var(--blue);font-weight:650;box-shadow:0 3px 10px rgba(11,31,68,.05)}
+    details{padding:14px 17px}details+details{margin-top:10px}summary{cursor:pointer;font-weight:750;color:var(--navy)}
 
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .step{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .step .num{width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--navy);display:grid;place-items:center;font-weight:700}
-    .step h4{margin:.4rem 0}
+    footer{margin-top:20px;padding:40px 0 18px;color:#c7d5eb;background:linear-gradient(180deg,#102a58,#081a39);border-top:4px solid var(--gold)}
+    footer a{color:#e7efff}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px;text-align:left}.foot-grid h5{font-family:Georgia,"Times New Roman",serif;color:#fff;font-size:1rem;margin:.1rem 0 .65rem}.foot-grid ul{padding-left:18px}.muted{color:#b9c9df}.disclaimer{max-width:650px;color:#9fb2cf;font-size:.8rem}.footer-logos{display:flex;justify-content:center;align-items:center;gap:30px;margin:24px auto;flex-wrap:wrap}.footer-logo{height:30px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.88}.sub{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;border-top:1px solid rgba(255,255,255,.16);font-size:.88rem}
 
-    .accept-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .chip{background:#f0f6f3;border:1px solid #d6eadf;padding:10px 12px;border-radius:999px}
-
-    details{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;box-shadow:var(--shadow)}
-    details+details{margin-top:10px}
-    summary{cursor:pointer;font-weight:600;list-style:none}
-    summary::-webkit-details-marker{display:none}
-
-    footer{background:#0b1f44;color:#bcd0ff;padding:36px 0 18px;margin-top:20px;text-align:center}
-    footer a{color:#cfe0ff}
-    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:18px;text-align:left}
-    .foot-grid h5{color:#fff;margin:.2rem 0 .6rem}
-    .sub{border-top:1px solid rgba(255,255,255,.15);margin-top:18px;padding-top:12px;font-size:.9rem;
-      display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
-    .disclaimer{font-size:.8rem;color:#9fb4ff;margin-top:8px;max-width:600px}
-
-    .footer-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      margin: 20px auto;
-      flex-wrap: wrap;
-    }
-    .footer-logo {
-      height: 30px;   /* half-size logos */
-      width: auto;
-      object-fit: contain;
-      filter: brightness(0) invert(1); /* all logos monochrome */
-    }
-
-    @media(max-width:960px){
-      .cards,.steps,.accept-grid,.foot-grid{grid-template-columns:1fr 1fr}
-      nav.primary{display:none}
-      .menu-btn{display:inline-block}
-    }
-    @media(max-width:560px){
-      .cards,.steps,.accept-grid{grid-template-columns:1fr}
-      .hero{padding:48px 0 28px}
-    }
+    @media(max-width:980px){.primary-nav{display:none;position:absolute;top:95px;left:16px;right:16px;flex-direction:column;align-items:stretch;padding:12px;background:#0d2854;border:1px solid rgba(255,255,255,.2);box-shadow:var(--shadow-lg)}.primary-nav.open{display:flex}.primary-nav a{padding:12px}.menu-btn{display:inline-block}.cards,.steps,.accept-grid,.foot-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.header-bar{min-height:78px}.brand img{height:56px}.brand-title strong{font-size:1.05rem}.brand-title span{font-size:.68rem}.primary-nav{top:81px}.hero{padding:48px 0 38px}.cards,.steps,.accept-grid,.foot-grid{grid-template-columns:1fr}.sub{flex-direction:column;align-items:flex-start}.usa-banner .container{padding-right:42px;text-align:left}}
   </style>
 </head>
 <body>
-  <!-- Top banner -->
   <div class="usa-banner" id="updateBanner">
-    <div class="container">
-      UPDATES – September 22, 2025: Site undergoing maintenance, some features may not work. 
-      You may contact us via phone at <strong>336-355-1178</strong> for immediate assistance.
-    </div>
+    <div class="container">PROGRAM UPDATE: For immediate assistance, contact <strong>336-355-1178</strong>.</div>
     <button class="banner-close" onclick="closeBanner()" aria-label="Close update banner">&times;</button>
   </div>
 
-  <!-- Header -->
   <header class="site-header">
-    <div class="container bar">
-      <a class="brand" href="/">
+    <div class="container header-bar">
+      <a class="brand" href="/" aria-label="NC Electronic Recycling home">
         <img src="A_logo_for_NC_Electronic_Recycling.png" alt="NC Electronic Recycling logo" />
-        <span class="title">
-          <strong>NC Electronic Recycling</strong>
-          <span>Public Recycling Program</span>
-        </span>
+        <span class="brand-title"><strong>NC Electronic Recycling</strong><span>Public Recycling Program</span></span>
       </a>
-      <nav class="primary">
-        <a href="#services" aria-current="page">Services</a>
-        <a href="#how">How it Works</a>
-        <a href="#accepted">Accepted Items</a>
-        <a href="#locations">Locations</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation">
+        <a href="#services" aria-current="page">Services</a><a href="#how">How It Works</a><a href="#accepted">Accepted Items</a><a href="#locations">Locations</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
       </nav>
-      <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+      <button class="menu-btn" type="button" onclick="toggleMenu()" aria-controls="primaryNav" aria-expanded="false">Menu</button>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
-    <div class="container">
-      <div class="lead">
-        <span class="badge">Secure & Responsible</span>
-        <h1>Electronic Recycling for North Carolina — safe, simple, and sustainable.</h1>
-        <p>Drop off or schedule a pickup for computers, phones, and other electronics. Certified data destruction. EPA-aligned processing. Receipts for your records.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="/pickup">Request Pickup</a>
-          <a class="btn btn-secondary" href="#locations">Find a Drop-Off</a>
-          <a class="btn btn-secondary" href="/certificate">Get Certificate</a>
-        </div>
-      </div>
-    </div>
+    <div class="container"><div class="lead">
+      <span class="program-label">Secure &amp; Responsible Electronics Recovery</span>
+      <h1>Electronic recycling for North Carolina.</h1>
+      <p>Convenient electronics drop-off and scheduled pickup services for residents, businesses, and local agencies—with secure data handling and documented processing.</p>
+      <div class="cta-row"><a class="btn btn-primary" href="/pickup">Request Pickup</a><a class="btn btn-secondary" href="#locations">Find a Drop-Off</a><a class="btn btn-secondary" href="/certificate">Get Certificate</a></div>
+    </div></div>
   </section>
 
   <main id="main">
-    <!-- Services -->
-    <section class="section" id="services">
-      <div class="container">
-        <h2>Program Services</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Residential Drop-Off</h3>
-            <p>Bring eligible electronics to any partner site. Staff can assist with unloading and quick screening.</p>
-            <a class="btn btn-secondary" href="#locations">Find Locations</a>
-          </article>
-          <article class="card">
-            <h3>Scheduled Pickup</h3>
-            <p>Curbside or on-premises pickup for households, businesses, and agencies. Certificates available.</p>
-            <a class="btn btn-primary" href="/pickup">Request Pickup</a>
-          </article>
-          <article class="card">
-            <h3>Certified Data Destruction</h3>
-            <p>Secure erasure for drives, phones, and servers. Physical destruction available upon request.</p>
-            <a class="btn btn-secondary" href="/data-destruction">View Procedures</a>
-          </article>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="services"><div class="container"><h2>Program Services</h2><div class="cards">
+      <article class="card"><h3>Residential Drop-Off</h3><p>Bring eligible electronics to a participating site for screening and responsible processing.</p><a class="btn btn-secondary" href="#locations">Find Locations</a></article>
+      <article class="card"><h3>Scheduled Pickup</h3><p>Curbside or on-premises pickup for households, businesses, and agencies. Certificates are available.</p><a class="btn btn-primary" href="/pickup">Request Pickup</a></article>
+      <article class="card"><h3>Certified Data Destruction</h3><p>Secure erasure for drives, phones, and servers. Physical destruction is available upon request.</p><a class="btn btn-secondary" href="/data-destruction">View Procedures</a></article>
+    </div></div></section>
 
-    <!-- How it Works -->
-    <section class="section" id="how">
-      <div class="container">
-        <h2>How it Works</h2>
-        <div class="steps">
-          <div class="step"><div class="num">1</div><h4>Check Eligibility</h4><p>Review the accepted items list.</p></div>
-          <div class="step"><div class="num">2</div><h4>Drop Off or Schedule</h4><p>Find a site or submit a pickup request.</p></div>
-          <div class="step"><div class="num">3</div><h4>Certified Processing</h4><p>All storage media sanitized before recycling.</p></div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="how"><div class="container"><h2>How It Works</h2><div class="steps">
+      <div class="step"><div class="num">1</div><h4>Check Eligibility</h4><p>Review the accepted items list and any applicable preparation requirements.</p></div>
+      <div class="step"><div class="num">2</div><h4>Drop Off or Schedule</h4><p>Select a participating location or submit a pickup request.</p></div>
+      <div class="step"><div class="num">3</div><h4>Documented Processing</h4><p>Equipment and storage media are handled according to established procedures.</p></div>
+    </div></div></section>
 
-    <!-- Accepted Items -->
-    <section class="section" id="accepted">
-      <div class="container">
-        <h2>Accepted Items</h2>
-        <div class="accept-grid">
-          <div class="chip">Laptops & Desktops</div>
-          <div class="chip">Monitors</div>
-          <div class="chip">Phones & Tablets</div>
-          <div class="chip">Printers</div>
-          <div class="chip">Servers & Networking</div>
-          <div class="chip">Cables</div>
-          <div class="chip">Game Consoles</div>
-          <div class="chip">Small Electronics</div>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="accepted"><div class="container"><h2>Accepted Items</h2><div class="accept-grid">
+      <div class="chip">Laptops &amp; Desktops</div><div class="chip">Monitors</div><div class="chip">Phones &amp; Tablets</div><div class="chip">Printers</div><div class="chip">Servers &amp; Networking</div><div class="chip">Cables</div><div class="chip">Game Consoles</div><div class="chip">Small Electronics</div>
+    </div></div></section>
 
-    <!-- Locations -->
-    <section class="section" id="locations">
-      <div class="container">
-        <h2>Drop-Off Locations</h2>
-        <div class="cards">
-          <article class="card"><h3>Find a Site Near You</h3><p>Use the map to locate the nearest site.</p></article>
-          <article class="card"><h3>Popular Sites</h3><ul><li>Burlington eWaste Facility</li><li>Whitsett Corporate Office</li><li>Graham Sorting Facility</li><li>Reidsville Logistics Center</li><li>Snow Camp Main Office</li></ul></article>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="locations"><div class="container"><h2>Drop-Off Locations</h2><div class="cards">
+      <article class="card"><h3>Find a Site Near You</h3><p>Use the location resources to identify the nearest participating site.</p><a class="btn btn-primary" href="#contact">Request Location Assistance</a></article>
+      <article class="card"><h3>Program Service Areas</h3><ul><li>Burlington</li><li>Whitsett</li><li>Graham</li><li>Reidsville</li><li>Snow Camp</li></ul></article>
+    </div></div></section>
 
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-        <h2>FAQ</h2>
-        <details><summary>How do you wipe my data?</summary><p>We use standards-based sanitization.</p></details>
-        <details><summary>Are there fees?</summary><p>Most drop-offs are free. Some items may incur fees.</p></details>
-      </div>
-    </section>
+    <section class="section" id="faq"><div class="container"><h2>Frequently Asked Questions</h2>
+      <details><summary>How is data handled?</summary><p>Storage media is processed using standards-based sanitization procedures. Additional destruction services may be requested.</p></details>
+      <details><summary>Are there fees?</summary><p>Many drop-offs are accepted without charge. Certain equipment, quantities, or pickup services may have associated fees.</p></details>
+    </div></section>
 
-    <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="container cards">
-        <div class="card"><h3>Contact Us</h3><p>Email: <a href="mailto:info@tekpakinc.net">info@tekpakinc.net</a></p></div>
-        <div class="card"><h3>Media & Agencies</h3><p><a href="/agencies">Agency portal</a></p></div>
-        <div class="card"><h3>Accessibility</h3><p><a href="/accessibility">Accessibility statement</a></p></div>
-      </div>
-    </section>
+    <section class="section" id="contact"><div class="container"><h2>Contact &amp; Resources</h2><div class="cards">
+      <div class="card"><h3>General Assistance</h3><p>Email <a href="mailto:info@tekpakinc.net">info@tekpakinc.net</a><br />Phone: 336-355-1178</p></div>
+      <div class="card"><h3>Media &amp; Agencies</h3><p>Program resources for organizations, public offices, and community partners.</p><a class="btn btn-secondary" href="/agencies">Agency Portal</a></div>
+      <div class="card"><h3>Accessibility</h3><p>Review the website accessibility statement and available assistance options.</p><a class="btn btn-secondary" href="/accessibility">Accessibility Statement</a></div>
+    </div></div></section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container foot-grid">
-      <div>
-        <h5>NC Electronic Recycling</h5>
-        <p class="muted">A public recycling initiative supporting secure, responsible electronics recovery across North Carolina.</p>
-        <p class="muted">This site presents program information and resources for residents, businesses, and local agencies.</p>
-        <p class="disclaimer"><strong>Disclaimer:</strong> NC Electronic Recycling is an independent program and is not directly affiliated with the North Carolina state government.</p>
-      </div>
-      <div>
-        <h5>Programs</h5><ul><li><a href="/residential">Residential</a></li><li><a href="/business">Business</a></li></ul>
-      </div>
-      <div>
-        <h5>Resources</h5><ul><li><a href="/accepted-items">Accepted Items</a></li><li><a href="/#locations">Locations</a></li></ul>
-      </div>
-      <div>
-        <h5>Policies</h5><ul><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li></ul>
-      </div>
-    </div>
-
-    <!-- Certification & Partner Logos -->
-    <div class="container footer-logos">
-      <img src="tekpak-logo.png" alt="Tek-Pak Inc logo" class="footer-logo" />
-      <img src="R2v3_Certifications-162.png" alt="R2v3 Compliant Certification" class="footer-logo" />
-      <img src="Registered-removebg-preview.png" alt="NC DEQ Registered" class="footer-logo" />
-    </div>
-
-    <div class="container sub">
-      <span>© Copyright 2025 an initiative of TEK-PAK INC</span>
-    </div>
-  </footer>
+  <footer><div class="container foot-grid">
+    <div><h5>NC Electronic Recycling</h5><p class="muted">A public recycling initiative supporting secure, responsible electronics recovery across North Carolina.</p><p class="disclaimer"><strong>Disclaimer:</strong> NC Electronic Recycling is an independent program and is not directly affiliated with the North Carolina state government.</p></div>
+    <div><h5>Programs</h5><ul><li><a href="/residential">Residential</a></li><li><a href="/business">Business</a></li></ul></div>
+    <div><h5>Resources</h5><ul><li><a href="/accepted-items">Accepted Items</a></li><li><a href="/#locations">Locations</a></li></ul></div>
+    <div><h5>Policies</h5><ul><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li></ul></div>
+  </div>
+  <div class="container footer-logos"><img src="tekpak-logo.png" alt="TEK-PAK Inc. logo" class="footer-logo" /><img src="R2v3_Certifications-162.png" alt="R2v3 compliance logo" class="footer-logo" /><img src="Registered-removebg-preview.png" alt="NC DEQ registration logo" class="footer-logo" /></div>
+  <div class="container sub"><span>© 2026 NC Electronic Recycling, an initiative of TEK-PAK Inc.</span><span>Secure. Responsible. Documented.</span></div></footer>
 
   <script>
-    function toggleMenu(){
-      const nav=document.getElementById('mobileNav');
-      if(nav) nav.classList.toggle('hidden');
-    }
-    function closeBanner(){
-      document.getElementById('updateBanner').style.display='none';
-    }
+    function toggleMenu(){const nav=document.getElementById('primaryNav');const btn=document.querySelector('.menu-btn');const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));}
+    function closeBanner(){document.getElementById('updateBanner').style.display='none';}
+    document.querySelectorAll('#primaryNav a').forEach(link=>link.addEventListener('click',()=>{document.getElementById('primaryNav').classList.remove('open');document.querySelector('.menu-btn').setAttribute('aria-expanded','false');}));
   </script>
 </body>
 </html>
