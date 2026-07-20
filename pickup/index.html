@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Request an electronics recycling pickup from NC Electronic Recycling." />
+  <title>Request Pickup | NC Electronic Recycling</title>
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box}:root{--navy:#0b1f44;--navy2:#17366f;--blue:#205493;--gold:#ffd60a;--gold2:#e5b900;--paper:#f5f7fa;--ink:#162744;--muted:#5c6d89;--border:#d9e2ef;--shadow:0 12px 30px rgba(11,31,68,.12)}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}.container{width:min(920px,calc(100% - 32px));margin:auto}.site-header{background:linear-gradient(180deg,var(--navy2),var(--navy));border-top:3px solid var(--gold);border-bottom:4px solid var(--gold);color:#fff;box-shadow:0 5px 18px rgba(4,18,44,.25)}.header-row{min-height:92px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:14px;color:#fff;text-decoration:none}.brand img{height:66px}.brand strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.25rem}.brand span{display:block;margin-top:4px;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:#dce7f7;font-weight:700}.back{color:#fff;text-decoration:none;font-weight:750;border:1px solid rgba(255,255,255,.35);padding:9px 12px;border-radius:7px;background:rgba(255,255,255,.08)}main{padding:48px 0 64px}.intro{margin-bottom:24px}.label{display:inline-block;color:var(--navy);font-size:.78rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase;border-left:5px solid var(--gold);padding-left:10px}.intro h1{font-family:Georgia,"Times New Roman",serif;color:var(--navy);font-size:clamp(2rem,5vw,3.2rem);line-height:1.08;margin:10px 0 12px}.intro p{color:var(--muted);max-width:760px}.form-card{background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}.form-head{background:#eef3f9;border-bottom:1px solid var(--border);padding:18px 22px}.form-head strong{color:var(--navy)}form{padding:24px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-weight:750;color:var(--navy)}input,select,textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:1px solid #bfcde0;border-radius:7px;padding:11px 12px;box-shadow:inset 0 1px 2px rgba(11,31,68,.05)}textarea{min-height:120px;resize:vertical}input:focus,select:focus,textarea:focus{outline:3px solid rgba(255,214,10,.38);border-color:#ba9700}.check{display:flex;gap:10px;align-items:flex-start}.check input{width:auto;margin-top:5px}.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 18px;border-radius:8px;border:1px solid #cda700;color:#152445;background:linear-gradient(180deg,#ffed72 0%,#ffd60a 48%,#e3b700 100%);box-shadow:inset 0 1px #fff6b8,inset 0 -2px rgba(120,86,0,.2),0 4px 0 #a98200,0 9px 18px rgba(11,31,68,.18);font-weight:850;cursor:pointer}.btn::before{content:"";position:absolute;left:5px;right:5px;top:3px;height:43%;border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.05))}.btn span{position:relative}.note{font-size:.86rem;color:var(--muted)}footer{background:var(--navy);color:#c7d5eb;padding:24px 0;text-align:center;border-top:4px solid var(--gold)}@media(max-width:680px){.header-row{min-height:78px}.brand img{height:54px}.brand span{display:none}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}form{padding:19px}.back{font-size:.85rem}}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="container header-row"><a class="brand" href="../"><img src="../A_logo_for_NC_Electronic_Recycling.png" alt="NC Electronic Recycling logo"><div><strong>NC Electronic Recycling</strong><span>Public Recycling Program</span></div></a><a class="back" href="../">Return to Program Site</a></div></header>
+  <main><div class="container">
+    <section class="intro"><span class="label">Service Request</span><h1>Request an electronics pickup</h1><p>Submit the information below and a program representative will review the request, confirm eligibility, and contact you regarding scheduling, preparation requirements, and any applicable fees.</p></section>
+    <section class="form-card"><div class="form-head"><strong>Pickup Request Form</strong></div>
+      <form action="https://formsubmit.co/info@tekpakinc.net" method="POST">
+        <input type="hidden" name="_subject" value="NC Electronic Recycling — New Pickup Request">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_next" value="https://ncelectronicrecycling.com/thank-you/">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="grid">
+          <div class="field"><label for="name">Contact name *</label><input id="name" name="Contact Name" required autocomplete="name"></div>
+          <div class="field"><label for="organization">Organization</label><input id="organization" name="Organization" autocomplete="organization"></div>
+          <div class="field"><label for="email">Email address *</label><input id="email" type="email" name="Email" required autocomplete="email"></div>
+          <div class="field"><label for="phone">Phone number *</label><input id="phone" type="tel" name="Phone" required autocomplete="tel"></div>
+          <div class="field full"><label for="address">Pickup address *</label><input id="address" name="Pickup Address" required autocomplete="street-address"></div>
+          <div class="field"><label for="city">City *</label><input id="city" name="City" required autocomplete="address-level2"></div>
+          <div class="field"><label for="zip">ZIP code *</label><input id="zip" name="ZIP Code" required inputmode="numeric" autocomplete="postal-code"></div>
+          <div class="field"><label for="requester">Requester type *</label><select id="requester" name="Requester Type" required><option value="">Select one</option><option>Resident / Household</option><option>Business</option><option>School or Nonprofit</option><option>Government / Public Agency</option><option>Property Manager</option><option>Other</option></select></div>
+          <div class="field"><label for="quantity">Estimated quantity *</label><select id="quantity" name="Estimated Quantity" required><option value="">Select one</option><option>1–10 items</option><option>11–25 items</option><option>26–50 items</option><option>51–100 items</option><option>More than 100 items</option><option>Pallets or bulk load</option></select></div>
+          <div class="field full"><label for="items">Equipment description *</label><textarea id="items" name="Equipment Description" required placeholder="List the types and approximate quantities of computers, monitors, printers, servers, phones, televisions, or other electronics."></textarea></div>
+          <div class="field"><label for="access">Pickup access</label><select id="access" name="Pickup Access"><option>Ground-level / curbside</option><option>Loading dock available</option><option>Stairs or upper floor</option><option>Inside office or residence</option><option>Other / needs coordination</option></select></div>
+          <div class="field"><label for="preferred">Preferred pickup timing</label><input id="preferred" name="Preferred Pickup Timing" placeholder="Example: weekday mornings"></div>
+          <div class="field full"><label for="services">Additional services</label><select id="services" name="Additional Services"><option>Standard recycling pickup</option><option>Certificate of recycling requested</option><option>Data destruction requested</option><option>Asset inventory requested</option><option>Unsure — please advise</option></select></div>
+          <div class="field full check"><input id="confirm" type="checkbox" name="Information Confirmation" value="Confirmed" required><label for="confirm">I confirm that the information provided is accurate and understand that submission does not guarantee pickup until the request is reviewed and confirmed.</label></div>
+        </div>
+        <div class="actions"><button class="btn" type="submit"><span>Submit Pickup Request</span></button><span class="note">A representative will follow up using the contact information provided.</span></div>
+      </form>
+    </section>
+  </div></main>
+  <footer><div class="container">© 2026 NC Electronic Recycling, an initiative of TEK-PAK Inc.</div></footer>
+</body>
+</html>
