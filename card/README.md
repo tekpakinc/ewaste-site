@@ -11,4 +11,4 @@ Edit `index.html` and `contact.vcf` together when business contact details chang
 
 For employee cards, add a permanent folder such as `/card/dan/` with verified employee details and a matching vCard, then generate a separate QR encoding that exact public URL. Do not use the general card QR for an employee-specific card.
 
-David Wails: `/card/david-wails/`, QR display `/card/david-wails/share/`. Contact details: Director of Acquisition, info@ncelectronicrecycling.com, 336-355-1178. Update the HTML and vCard together.
+David Wails: `/card/david-wails/`, QR display `/card/david-wails/share/`. Contact details: Acquisition Manager, info@ncelectronicrecycling.com, 336-355-1178. Update the HTML and vCard together.
