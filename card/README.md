@@ -10,3 +10,5 @@ These static pages work with the site's existing GitHub Pages hosting. There are
 Edit `index.html` and `contact.vcf` together when business contact details change. The QR does not need changing while the URL stays the same. Test Save Contact on iPhone and Android before distributing cards; the phone handles the final contact import.
 
 For employee cards, add a permanent folder such as `/card/dan/` with verified employee details and a matching vCard, then generate a separate QR encoding that exact public URL. Do not use the general card QR for an employee-specific card.
+
+David Wails: `/card/david-wails/`, QR display `/card/david-wails/share/`. Contact details: Director of Acquisition, info@ncelectronicrecycling.com, 336-355-1178. Update the HTML and vCard together.
