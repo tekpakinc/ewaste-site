@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Sauer;Daniel;;;
+FN:Daniel Sauer
+ORG:NC Electronic Recycling
+TITLE:Director of Operations
+TEL;TYPE=WORK,VOICE:+13363551178
+EMAIL;TYPE=INTERNET,WORK:dsauer@tekpakinc.net
+URL:https://ncelectronicrecycling.com/
+NOTE:A service of TEK-PAK Inc.
+END:VCARD
