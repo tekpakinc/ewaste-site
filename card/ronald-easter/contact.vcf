@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Easter;Ronald;;;
+FN:Ronald Easter
+ORG:NC Electronic Recycling
+TITLE:Lead Technician
+TEL;TYPE=WORK,VOICE:+13363551178
+EMAIL;TYPE=INTERNET,WORK:reaster@ncelectronicrecycling.com
+URL:https://ncelectronicrecycling.com/
+NOTE:A service of TEK-PAK Inc.
+END:VCARD
