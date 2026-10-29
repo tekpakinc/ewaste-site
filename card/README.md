@@ -7,7 +7,7 @@
 
 These static pages work with the site's existing GitHub Pages hosting. There are no third-party QR services, visitor accounts, tracking scripts, or subscription dependencies. The domain and `/card/` path must remain available for printed codes to keep working.
 
-Edit `index.html` and `contact.vcf` together when business contact details change. The QR does not need changing while the URL stays the same. Test Save Contact on iPhone and Android before distributing cards; the phone handles the final contact import.
+Edit `index.html`, `contact.vcf`, and `contact-outlook.csv` together when business contact details change. The QR does not need changing while the URL stays the same. The Add to contacts chooser offers Microsoft 365 / Outlook (CSV), Google Contacts (vCard), and phone / Apple / other apps (vCard). It provides download links and import instructions; the visitor finishes the import in their chosen account. No account access or sign-in credentials are requested. Browsers without dialog support or JavaScript keep the original vCard download. Shared assets are `contact-options.js` and `contact-options.css`.
 
 For employee cards, add a permanent folder such as `/card/dan/` with verified employee details and a matching vCard, then generate a separate QR encoding that exact public URL. Do not use the general card QR for an employee-specific card.
 
